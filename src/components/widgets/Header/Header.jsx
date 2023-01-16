@@ -12,6 +12,7 @@ const Header = () => {
                 <Link to={"/list"} className={"font-bold text-white hover:text-blue"}>useScroll</Link>
                 <Link to={"/search"} className={"font-bold text-white hover:text-blue"}>useDebounce</Link>
                 <Link to={"/request"} className={"font-bold text-white hover:text-blue"}>useRequest</Link>
+                <Link to={"/throttle"} className={"font-bold text-white hover:text-blue"}>useThrottle</Link>
             </div>
         </div>
     );

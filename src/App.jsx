@@ -12,6 +12,7 @@ import Hover from "./pages/Hover";
 import List from "./pages/List";
 import Search from "./pages/Search";
 import Request from "./pages/Request";
+import Throttle from "./pages/Throttle";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -21,6 +22,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={"list"} element={<List />}/>
             <Route path={"search"} element={<Search />}/>
             <Route path={"request"} element={<Request />}/>
+            <Route path={"throttle"} element={<Throttle />}/>
         </Route>
     </>
 ));
