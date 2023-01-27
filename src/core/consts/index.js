@@ -206,3 +206,39 @@ export const toCrc32Code = `
         return (crc ^ finalXORValue) >>> 0
     }
 `;
+export const inputsCode = `
+    const refs = Array.from(Array(_length), () => useRef(null));
+    const onKeyDown = useCallback((event, idx) => {
+        if (event.key === "Backspace" && idx !== 0) {
+            if (!event.target.value.length) {
+                refs[idx - 1].current.focus();
+            }
+        }
+    }, [refs]);
+    const onChange = useCallback((event, idx) => {
+        if (event.nativeEvent.inputType === 'insertFromPaste') {
+            const letters = event.target.value.trim().split("");
+            let idx = 0;
+
+            for (const letter of letters) {
+                refs[idx].current.value = letter;
+                idx++;
+
+                if (idx > _length - 1) {
+                    idx = 0;
+                }
+            }
+        } else {
+            if (event.target.value.length > 1) {
+                event.target.value = event.target.value.slice(1);
+            }
+            if (event.nativeEvent.inputType !== 'deleteContentBackward') {
+                if (idx === _length - 1) {
+                    refs[0].current.focus();
+                } else {
+                    refs[idx + 1].current.focus();
+                }
+            }
+        }
+    }, [refs]);
+`;
