@@ -28,6 +28,10 @@ const hooks = [
         to: "/throttle",
         title: "useThrottle"
     },
+    {
+        to: "/mask-input",
+        title: "useMaskInput"
+    }
 ];
 const utils = [
     {

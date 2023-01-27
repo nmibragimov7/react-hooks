@@ -103,6 +103,34 @@ export const useThrottleCode = `
         }, [cb, delay]);
     }
 `;
+export const useMaskInputCode = `
+    import {useCallback, useEffect, useRef} from "react";
+    import IMask from "imask";
+    
+    export const useMaskInput = (payload) => {
+        const {mask, initValue, setValue} = payload;
+    
+        const inputRef = useRef(null);
+        const maskedRef = useRef(null);
+        const changeValue = useCallback((value) => {
+            maskedRef.current.value = value;
+        }, [maskedRef]);
+        useEffect(() => {
+            if (inputRef.current) {
+                maskedRef.current = IMask(
+                    inputRef.current, {
+                        mask
+                    });
+                maskedRef.current.value = initValue;
+                maskedRef.current.on("accept", () => {
+                    setValue(maskedRef.current.unmaskedValue);
+                })
+            }
+        }, [inputRef]);
+    
+        return {inputRef, changeValue}
+    }
+`;
 export const toBase64Code = `
     const [base64, setBase64] = useState("");
     

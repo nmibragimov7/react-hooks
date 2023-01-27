@@ -13,6 +13,7 @@ import List from "./pages/List";
 import Search from "./pages/Search";
 import Request from "./pages/Request";
 import Throttle from "./pages/Throttle";
+import Mask from "./pages/Mask";
 import ConvertFile from "./pages/ConvertFile";
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={"search"} element={<Search />}/>
             <Route path={"request"} element={<Request />}/>
             <Route path={"throttle"} element={<Throttle />}/>
+            <Route path={"mask-input"} element={<Mask />}/>
             <Route path={"convert-file"} element={<ConvertFile />}/>
         </Route>
     </>

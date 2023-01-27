@@ -5,6 +5,7 @@ import styles from './BaseInput.module.scss';
 const BaseInput = (props) => {
     const {
         name,
+        inputRef = null,
         value,
         type = "text",
         placeholder,
@@ -17,6 +18,7 @@ const BaseInput = (props) => {
         <>
             <input
                 name={name}
+                ref={inputRef}
                 value={value}
                 placeholder={placeholder}
                 type={type}
