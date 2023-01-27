@@ -38,6 +38,10 @@ const utils = [
         to: "/convert-file",
         title: "File to base64"
     },
+    {
+        to: "/verification-code",
+        title: "Input verification code"
+    },
 ];
 
 const Header = () => {

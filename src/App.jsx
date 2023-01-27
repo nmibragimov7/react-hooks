@@ -15,6 +15,7 @@ import Request from "./pages/Request";
 import Throttle from "./pages/Throttle";
 import Mask from "./pages/Mask";
 import ConvertFile from "./pages/ConvertFile";
+import CodeInput from "./pages/CodeInput";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -27,6 +28,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={"throttle"} element={<Throttle />}/>
             <Route path={"mask-input"} element={<Mask />}/>
             <Route path={"convert-file"} element={<ConvertFile />}/>
+            <Route path={"verification-code"} element={<CodeInput />}/>
         </Route>
     </>
 ));
