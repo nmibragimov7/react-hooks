@@ -1,3 +1,19 @@
 .Header {
   @apply bg-green;
 }
+
+.dropdown {
+  @apply relative;
+
+  &:hover .dropdown__content {
+    @apply opacity-100 visible transition-all;
+
+    & a {
+      @apply whitespace-nowrap text-birch hover:text-birch/70;
+    }
+  }
+
+  &__content {
+    @apply absolute top-14 flex flex-col gap-2 p-4 opacity-0 invisible bg-white-blue;
+  }
+}

@@ -28,7 +28,12 @@ module.exports = {
                 'green': '#24ae7c',
                 'red': '#EB5757',
                 'orange': '#EE6E33',
-                'pink':'#FFF5F3'
+                'pink':'#FFF5F3',
+                'purple': '#C52DFF',
+                'purple-100': '#F9F4FB',
+                'purple-dark': '#637BB9',
+                'birch': '#4C9DA9',
+                'birch-100': '#F4F6FB'
             },
             fontFamily: {
                 'sans': ['Raleway', 'sans-serif']

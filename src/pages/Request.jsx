@@ -1,7 +1,10 @@
 import React, {useCallback, useState} from 'react';
 import axios from "axios";
+import Highlight from 'react-highlight';
+import 'highlight.js/styles/github.css';
 
 import useRequest from "../hooks/useRequest";
+import {useRequestCode} from "../core/consts";
 
 const Request = () => {
     const [shown, setShown] = useState(false);
@@ -18,7 +21,7 @@ const Request = () => {
 
     return (
         <>
-            <div className={"max-h-[80vh] overflow-x-auto shadow-gray-100 p-4 mb-10"}>
+            <div className={"max-h-[50vh] overflow-x-auto shadow-gray-100 p-4 mb-10"}>
                 {
                     data && data.map((item) => (
                         <div key={item.id} className={"bg-blue shadow-gray-100 text-primary-blue p-4 mb-2"}>
@@ -33,6 +36,13 @@ const Request = () => {
                 onClick={() => setShown(!shown)}
             >useRequest</span>
             </p>
+            {shown &&
+                <div className={"max-w-3xl mx-auto shadow-gray-100"}>
+                    <Highlight>
+                        {useRequestCode}
+                    </Highlight>
+                </div>
+            }
         </>
     );
 };

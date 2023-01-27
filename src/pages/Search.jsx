@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import axios from "axios";
+import Highlight from 'react-highlight';
+import 'highlight.js/styles/github.css';
 
 import BaseInput from "../components/base/BaseInput/BaseInput";
 import useDebounce from "../hooks/useDebounce";
+import {useDebounceCode} from "../core/consts";
 
 const Search = () => {
     const [value, setValue] = useState("");
@@ -59,35 +62,11 @@ const Search = () => {
             >useDebounce</span>
             </p>
             {shown &&
-            <div className={"max-w-3xl mx-auto"}>
-                <code>
-                    <span className={"font-bold text-orange"}>export default function</span> <span className={"font-bold text-primary-blue"}>useDebounce</span>(cb, delay) [
-                    <br/>
-                    <span className={"ml-4 font-bold text-orange"}>const</span> timer = <span className={"font-bold text-primary-blue"}>useRef</span>();
-                    <br/>
-                    <div className={"ml-4"}>
-                        <span className={"font-bold text-orange"}>const</span> debouncedCallback = <span className={"font-bold text-primary-blue"}>useCallback</span>((...args) => [
-                        <br/>
-                        <span className={"ml-4 font-bold text-orange"}>if</span> (timer.current) [
-                        <br/>
-                        <span className={"ml-8"}><span className={"font-bold text-primary-blue"}>clearTimeout</span>(timer.current);</span>
-                        <br/>
-                        <span className={"ml-4"}>]</span>
-                        <br/>
-                        <span className={"ml-4"}>timer.current = <span className={"font-bold text-primary-blue"}>setTimeout</span>(<span className={"font-bold text-orange"}>async</span> () => [</span>
-                        <br/>
-                        <span className={"ml-8 font-bold text-orange"}>await</span> cb(...args);
-                        <br/>
-                        <span className={"ml-4"}>], delay);</span>
-                        <br/>
-                        <span>], [timer, cb, delay]);</span>
-                    </div>
-                    <br/>
-                    <span className={"ml-4 font-bold text-orange"}>return</span> debouncedCallback;
-                    <br/>
-                    ];
-                </code>
-            </div>
+                <div className={"max-w-3xl mx-auto shadow-gray-100"}>
+                    <Highlight>
+                        {useDebounceCode}
+                    </Highlight>
+                </div>
             }
         </>
     );

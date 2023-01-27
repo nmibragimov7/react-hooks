@@ -1,18 +1,69 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 import styles from './Header.module.scss';
 
+const hooks = [
+    {
+        to: "/",
+        title: "useInput"
+    },
+    {
+        to: "/hover",
+        title: "useHover"
+    },
+    {
+        to: "/list",
+        title: "useScroll"
+    },
+    {
+        to: "/search",
+        title: "useDebounce"
+    },
+    {
+        to: "/request",
+        title: "useRequest"
+    },
+    {
+        to: "/throttle",
+        title: "useThrottle"
+    },
+];
+const utils = [
+    {
+        to: "/convert-file",
+        title: "File to base64"
+    },
+];
+
 const Header = () => {
+    const location = useLocation();
+
     return (
         <div className={styles.Header}>
-            <div className={"container mx-auto p-4 flex gap-4"}>
-                <Link to={"/"} className={"font-bold text-white hover:text-blue"}>useInput</Link>
-                <Link to={"/hover"} className={"font-bold text-white hover:text-blue"}>useHover</Link>
-                <Link to={"/list"} className={"font-bold text-white hover:text-blue"}>useScroll</Link>
-                <Link to={"/search"} className={"font-bold text-white hover:text-blue"}>useDebounce</Link>
-                <Link to={"/request"} className={"font-bold text-white hover:text-blue"}>useRequest</Link>
-                <Link to={"/throttle"} className={"font-bold text-white hover:text-blue"}>useThrottle</Link>
+            <div className={"container mx-auto flex gap-4"}>
+                <div className={styles.dropdown}>
+                    <div className={"font-bold text-white hover:text-blue p-4"}>User hooks</div>
+                    <div className={styles.dropdown__content}>
+                        {
+                            hooks.map(hook =>
+                                <Link key={hook.to} to={hook.to} className={location.pathname === hook.to ? "!text-purple" : ""}>
+                                    {hook.title}
+                                </Link>)
+                        }
+                    </div>
+                </div>
+                <div className={styles.dropdown}>
+                    <div className={"font-bold text-white hover:text-blue p-4"}>Utils</div>
+                    <div className={styles.dropdown__content}>
+                        {
+                            utils.map(util =>
+                                <Link key={util.to} to={util.to} className={location.pathname === util.to ? "!text-purple" : ""}>
+                                    {util.title}
+                                </Link>)
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     );
