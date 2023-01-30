@@ -104,31 +104,54 @@ export const useThrottleCode = `
     }
 `;
 export const useMaskInputCode = `
-    import {useCallback, useEffect, useRef} from "react";
-    import IMask from "imask";
+    export default function useLazy(elements) {
+        const observer = useRef();
+        const options = {
+            rootMargin: '50px 0px 0px',
+        };
     
-    export const useMaskInput = (payload) => {
-        const {mask, initValue, setValue} = payload;
-    
-        const inputRef = useRef(null);
-        const maskedRef = useRef(null);
-        const changeValue = useCallback((value) => {
-            maskedRef.current.value = value;
-        }, [maskedRef]);
         useEffect(() => {
-            if (inputRef.current) {
-                maskedRef.current = IMask(
-                    inputRef.current, {
-                        mask
-                    });
-                maskedRef.current.value = initValue;
-                maskedRef.current.on("accept", () => {
-                    setValue(maskedRef.current.unmaskedValue);
-                })
-            }
-        }, [inputRef]);
+            observer.current = new IntersectionObserver((etnries, observer) => {
+                etnries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.src = entry.target.dataset.src;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
     
-        return {inputRef, changeValue}
+            elements.forEach((element) => {
+                observer.current.observe(element.current);
+            });
+        }, [elements]);
+    }
+`;
+export const useLazyCode = `
+    export default function useLazy(elements) {
+        const observer = useRef();
+        const options = {
+            rootMargin: '50px 0px 0px',
+        };
+    
+        useEffect(() => {
+            observer.current = new IntersectionObserver((etnries, observer) => {
+                etnries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.src = entry.target.dataset.src;
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+    
+            elements.forEach((element) => {
+                observer.current.observe(element.current);
+            });
+            return () => {
+                elements.forEach((element) => {
+                    observer.current.unobserve(element.current);
+                });
+            }
+        }, [elements]);
     }
 `;
 export const toBase64Code = `

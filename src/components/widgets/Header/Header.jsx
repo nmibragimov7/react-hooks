@@ -31,6 +31,10 @@ const hooks = [
     {
         to: "/mask-input",
         title: "useMaskInput"
+    },
+    {
+        to: "/lazy-images",
+        title: "useLazy"
     }
 ];
 const utils = [

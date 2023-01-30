@@ -16,6 +16,7 @@ import Throttle from "./pages/Throttle";
 import Mask from "./pages/Mask";
 import ConvertFile from "./pages/ConvertFile";
 import CodeInput from "./pages/CodeInput";
+import LazyImages from "./pages/LazyImages";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -26,6 +27,8 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={"search"} element={<Search />}/>
             <Route path={"request"} element={<Request />}/>
             <Route path={"throttle"} element={<Throttle />}/>
+            <Route path={"lazy-images"} element={<LazyImages />}/>
+
             <Route path={"mask-input"} element={<Mask />}/>
             <Route path={"convert-file"} element={<ConvertFile />}/>
             <Route path={"verification-code"} element={<CodeInput />}/>
