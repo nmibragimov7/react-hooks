@@ -19,5 +19,12 @@ export default function useLazy(elements) {
         elements.forEach((element) => {
             observer.current.observe(element.current);
         });
+        return () => {
+            elements.forEach((element) => {
+                if(element.current) {
+                    observer.current.unobserve(element.current);
+                }
+            });
+        }
     }, [elements]);
 }
