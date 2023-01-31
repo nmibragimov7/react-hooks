@@ -104,26 +104,29 @@ export const useThrottleCode = `
     }
 `;
 export const useMaskInputCode = `
-    export default function useLazy(elements) {
-        const observer = useRef();
-        const options = {
-            rootMargin: '50px 0px 0px',
-        };
+    export const useMaskInput = (payload) => {
+        const {mask, initValue, setValue} = payload;
+    
+        const inputRef = useRef(null);
+        const maskedRef = useRef(null);
+        const changeValue = useCallback(() => {
+            maskedRef.current = IMask(
+                inputRef.current, {
+                    mask
+                });
+            maskedRef.current.value = initValue;
+            maskedRef.current.on("accept", () => {
+                setValue(maskedRef.current.unmaskedValue);
+            })
+        }, []);
     
         useEffect(() => {
-            observer.current = new IntersectionObserver((etnries, observer) => {
-                etnries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.src = entry.target.dataset.src;
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, options);
+            if (inputRef.current) {
+                changeValue();
+            }
+        }, [changeValue, inputRef]);
     
-            elements.forEach((element) => {
-                observer.current.observe(element.current);
-            });
-        }, [elements]);
+        return {inputRef};
     }
 `;
 export const useLazyCode = `
