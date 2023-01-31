@@ -1,11 +1,12 @@
 import React, {useRef, useState} from 'react';
+import Highlight from "react-highlight";
+import 'highlight.js/styles/github.css';
 
 import useLazy from "../hooks/useLazy";
 import {useLazyCode} from "../core/consts";
 import image1 from "../static/images/0.jpg";
 import image2 from "../static/images/4.jpg";
 import image3 from "../static/images/5.jpg";
-import Highlight from "react-highlight";
 
 const images = [
     {

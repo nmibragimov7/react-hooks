@@ -26,5 +26,5 @@ export default function useLazy(elements) {
                 }
             });
         }
-    }, [elements]);
+    }, []);
 }
