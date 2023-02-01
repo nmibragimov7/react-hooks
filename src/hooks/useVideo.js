@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 
-export function useLazyVideo(element) {
+export function useVideo(element) {
     const observer = useRef();
     const options = {
         threshold: [0.2, 0.8]
