@@ -2,8 +2,8 @@ import React, {useRef, useState} from 'react';
 import Highlight from "react-highlight";
 import 'highlight.js/styles/github.css';
 
-import useLazy from "../hooks/useLazy";
-import {useLazyCode} from "../core/consts";
+import useLazy from "../hooks/useLazyImage";
+import {useLazyImageCode} from "../core/consts";
 import image1 from "../static/images/0.jpg";
 import image2 from "../static/images/4.jpg";
 import image3 from "../static/images/5.jpg";
@@ -35,12 +35,12 @@ const LazyImages = () => {
                     Реализован пользовательский хук <span
                     className={"text-primary-blue hover:text-primary-blue/70 cursor-pointer"}
                     onClick={() => setShown(!shown)}
-                >useLazy</span>
+                >useLazyImage</span>
                 </p>
                 {shown &&
                 <div className={"max-w-4xl mx-auto shadow-gray-100"}>
                     <Highlight>
-                        {useLazyCode}
+                        {useLazyImageCode}
                     </Highlight>
                 </div>
                 }

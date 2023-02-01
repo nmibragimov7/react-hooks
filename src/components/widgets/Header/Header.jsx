@@ -34,7 +34,11 @@ const hooks = [
     },
     {
         to: "/lazy-images",
-        title: "useLazy"
+        title: "useLazyImage"
+    },
+    {
+        to: "/autoplay-video",
+        title: "useLazyVideo"
     }
 ];
 const utils = [

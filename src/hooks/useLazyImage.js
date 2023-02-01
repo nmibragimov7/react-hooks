@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 
-export default function useLazy(elements) {
+export default function useLazyImage(elements) {
     const observer = useRef();
     const options = {
         rootMargin: '50px 0px 0px',

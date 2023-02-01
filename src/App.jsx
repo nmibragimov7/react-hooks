@@ -17,6 +17,7 @@ import Mask from "./pages/Mask";
 import ConvertFile from "./pages/ConvertFile";
 import CodeInput from "./pages/CodeInput";
 import LazyImages from "./pages/LazyImages";
+import Video from "./pages/Video";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -28,6 +29,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={"request"} element={<Request />}/>
             <Route path={"throttle"} element={<Throttle />}/>
             <Route path={"lazy-images"} element={<LazyImages />}/>
+            <Route path={"autoplay-video"} element={<Video />}/>
 
             <Route path={"mask-input"} element={<Mask />}/>
             <Route path={"convert-file"} element={<ConvertFile />}/>

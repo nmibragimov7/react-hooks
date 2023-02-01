@@ -129,8 +129,8 @@ export const useMaskInputCode = `
         return {inputRef};
     }
 `;
-export const useLazyCode = `
-    export default function useLazy(elements) {
+export const useLazyImageCode = `
+    export default function useLazyImage(elements) {
         const observer = useRef();
         const options = {
             rootMargin: '50px 0px 0px',
