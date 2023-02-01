@@ -3,7 +3,7 @@ import {useEffect, useRef} from "react";
 export function useLazyVideo(element) {
     const observer = useRef();
     const options = {
-        rootMargin: '50px 0px 0px',
+        threshold: [0.2, 0.8]
     };
 
     useEffect(() => {
