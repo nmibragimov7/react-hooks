@@ -38,7 +38,7 @@ const hooks = [
     },
     {
         to: "/autoplay-video",
-        title: "useLazyVideo"
+        title: "useVideo"
     }
 ];
 const utils = [
