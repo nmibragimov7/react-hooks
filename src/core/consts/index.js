@@ -1,3 +1,5 @@
+import {useMatchMedia} from "../../hooks/useMatchMedia";
+
 export const useInputCode = `
     export default function useInput(initialValue) {
         const [value, setValue] = useState(initialValue);
@@ -222,6 +224,29 @@ export const useMenuCode = `
                 });
             }
         }, []);
+    }
+`;
+export const useMatchMediaCode = `
+    export function useMatchMedia() {
+        const mediaQueries = queries.map(query => matchMedia(query));
+        const getValues = () => mediaQueries.map(mql => mql.matches);
+        const [values, setValues] = useState(getValues);
+    
+        useLayoutEffect(() => {
+            const handler = () => setValues(getValues);
+            mediaQueries.forEach(query => query.addEventListener("change", handler));
+    
+            return () => {
+                mediaQueries.forEach(query => query.removeEventListener("change", handler));
+            }
+        }, []);
+    
+        return ["isMobile", "isTablet", "isDesktop"].reduce((acc, screen, idx) => {
+            return {
+                ...acc,
+                [screen]: values[idx]
+            }
+        }, {});
     }
 `;
 export const toBase64Code = `

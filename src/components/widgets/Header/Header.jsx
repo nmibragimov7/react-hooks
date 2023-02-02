@@ -43,6 +43,10 @@ const hooks = [
     {
         to: "/menu",
         title: "useMenu"
+    },
+    {
+        to: "/responsive",
+        title: "useMatchMedia"
     }
 ];
 const utils = [

@@ -66,7 +66,7 @@ const Menu = () => {
                         key={`link-${idx}`}
                         data-id={items[idx].id}
                         data-color={items[idx].color}
-                        className={"w-16 h-16 flex items-center justify-center cursor-pointer border-b border-solid border-white"}
+                        className={"w-16 h-16 flex items-center justify-center cursor-pointer border border-solid border-white"}
                         onClick={() => onScroll(idx)}
                     >
                         <div className={"text-2xl font-bold text-white"}>{items[idx].title}</div>
