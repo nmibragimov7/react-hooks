@@ -7,8 +7,8 @@ export default function useLazyImage(elements) {
     };
 
     useEffect(() => {
-        observer.current = new IntersectionObserver((etnries, observer) => {
-            etnries.forEach(entry => {
+        observer.current = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
                 if(entry.isIntersecting) {
                     entry.target.src = entry.target.dataset.src;
                     observer.unobserve(entry.target);

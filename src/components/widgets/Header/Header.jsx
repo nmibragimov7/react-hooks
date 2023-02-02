@@ -39,6 +39,10 @@ const hooks = [
     {
         to: "/autoplay-video",
         title: "useVideo"
+    },
+    {
+        to: "/menu",
+        title: "useObserver"
     }
 ];
 const utils = [
