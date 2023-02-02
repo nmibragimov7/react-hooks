@@ -42,7 +42,7 @@ const hooks = [
     },
     {
         to: "/menu",
-        title: "useObserver"
+        title: "useMenu"
     }
 ];
 const utils = [
