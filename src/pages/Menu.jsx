@@ -1,4 +1,5 @@
 import React, {useRef, useState} from 'react';
+import {useNavigate} from "react-router-dom";
 import Highlight from "react-highlight";
 import 'highlight.js/styles/github.css';
 
@@ -45,10 +46,14 @@ const Description = () => {
     );
 };
 const Menu = () => {
+    const navigate = useNavigate();
     const links = Array.from(Array(items.length), () => useRef(null));
     const blocks = Array.from(Array(items.length), () => useRef(null));
     useMenu(blocks, links);
     const onScroll = (idx) => {
+        navigate({
+            hash: items[idx].id
+        });
         window.scrollTo({
             top: blocks[idx].current.offsetTop,
             left: 0,
