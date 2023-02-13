@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Highlight from "react-highlight";
+import 'highlight.js/styles/github.css';
 
 import BaseButton from "../components/base/BaseButton/BaseButton";
 import {useSet} from "../hooks/useSet";
+import {useSetCode} from "../core/consts";
 
 const values = Array.from(
     {length: 10},
@@ -9,6 +12,7 @@ const values = Array.from(
 );
 
 const Set = () => {
+    const [shown, setShown] = useState(false);
     const selectedItemsSet = useSet();
     const toggle = (value) => {
         if(selectedItemsSet.has(value)) {
@@ -20,6 +24,19 @@ const Set = () => {
 
     return (
         <>
+            <p className={"text-center text-2xl text-dark mb-4"}>
+                Реализован пользовательский хук <span
+                className={"text-primary-blue hover:text-primary-blue/70 cursor-pointer"}
+                onClick={() => setShown(!shown)}
+            >useSet</span>
+            </p>
+            {shown &&
+                <div className={"max-w-3xl mx-auto shadow-gray-100 mb-4"}>
+                    <Highlight>
+                        {useSetCode}
+                    </Highlight>
+                </div>
+            }
             <div className={"flex gap-4"}>
                 {values.map(value =>
                     <BaseButton
