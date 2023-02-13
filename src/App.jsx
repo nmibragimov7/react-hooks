@@ -20,6 +20,7 @@ import LazyImages from "./pages/LazyImages";
 import Video from "./pages/Video";
 import Menu from "./pages/Menu";
 import Responsive from "./pages/Responsive";
+import MutationObserverPage from "./pages/MutationObserverPage";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -34,6 +35,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={"autoplay-video"} element={<Video />}/>
             <Route path={"menu"} element={<Menu />}/>
             <Route path={"responsive"} element={<Responsive />}/>
+            <Route path={"mutation-observer"} element={<MutationObserverPage />}/>
 
             <Route path={"mask-input"} element={<Mask />}/>
             <Route path={"convert-file"} element={<ConvertFile />}/>

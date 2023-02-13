@@ -47,6 +47,10 @@ const hooks = [
     {
         to: "/responsive",
         title: "useMatchMedia"
+    },
+    {
+        to: "/mutation-observer",
+        title: "useMutationObserver"
     }
 ];
 const utils = [
