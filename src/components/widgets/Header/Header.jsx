@@ -51,6 +51,10 @@ const hooks = [
     {
         to: "/mutation-observer",
         title: "useMutationObserver"
+    },
+    {
+        to: "/set",
+        title: "useSet"
     }
 ];
 const utils = [
