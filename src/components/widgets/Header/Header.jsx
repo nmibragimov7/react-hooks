@@ -55,6 +55,10 @@ const hooks = [
     {
         to: "/set",
         title: "useSet"
+    },
+    {
+        to: "/map",
+        title: "useMap"
     }
 ];
 const utils = [

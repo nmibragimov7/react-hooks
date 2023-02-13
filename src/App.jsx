@@ -22,6 +22,7 @@ import Menu from "./pages/Menu";
 import Responsive from "./pages/Responsive";
 import MutationObserverPage from "./pages/MutationObserverPage";
 import Set from "./pages/Set";
+import Map from "./pages/Map";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
@@ -38,6 +39,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={"responsive"} element={<Responsive />}/>
             <Route path={"mutation-observer"} element={<MutationObserverPage />}/>
             <Route path={"set"} element={<Set />}/>
+            <Route path={"map"} element={<Map />}/>
 
             <Route path={"mask-input"} element={<Mask />}/>
             <Route path={"convert-file"} element={<ConvertFile />}/>
